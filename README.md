@@ -59,3 +59,6 @@ Disse tests kan findes ved hjælp af denne sti: cypress/e2e
 
 ### Github Action:
 Github Action fungerer - hvergang der pushes så opdatere den.
+
+For at gøre brug af GitHub Action er der blevet tilføjet en main.yml fil. 
+Denne fil fortæller hvilke tests der skal tjekkes.
