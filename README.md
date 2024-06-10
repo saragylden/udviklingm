@@ -34,4 +34,4 @@ ToDoItem
 ToDoItemEditForm
 
 ### Succesful e2e:
-HelloWorld
+HelloWorld.cy.js App.cy.js
