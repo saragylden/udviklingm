@@ -6,15 +6,12 @@ describe('ToDoForm.vue', () => {
   it('emits "todo-added" event with the correct payload when form is submitted', async () => {
     const wrapper = mount(ToDoForm);
 
-    // Find input and set value
     const input = wrapper.find('input');
     await input.setValue('New Todo');
 
-    // Find form and trigger submit event
     const form = wrapper.find('form');
     await form.trigger('submit.prevent');
 
-    // Assert event has been emitted
     expect(wrapper.emitted()['todo-added']).toBeTruthy();
     expect(wrapper.emitted()['todo-added'][0]).toEqual(['New Todo']);
   });
@@ -22,15 +19,12 @@ describe('ToDoForm.vue', () => {
   it('clears the input after form submission', async () => {
     const wrapper = mount(ToDoForm);
 
-    // Find input and set value
     const input = wrapper.find('input');
     await input.setValue('New Todo');
 
-    // Find form and trigger submit event
     const form = wrapper.find('form');
     await form.trigger('submit.prevent');
 
-    // Assert input value has been cleared
     expect(wrapper.vm.label).toBe('');
     expect(input.element.value).toBe('');
   });
