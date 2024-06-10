@@ -33,6 +33,11 @@ ToDoForm
 ToDoItem
 ToDoItemEditForm
 
+Det er blevet gjort brug af vitest for at udføre disse unitests.
+Dette installeres ved hjælp af denne kommando: npm install vitest --save-dev
+
+Disse tests kan findes ved hjælp af denne sti: src/components/__test__
+
 ### Succesful e2e:
 HelloWorld.cy.js 
 Denne e2e test tjekker:
@@ -44,6 +49,13 @@ Denne e2e test tjekker:
 App.cy.js
 Denne e2e tjekker om:
 - En korrekt besked vises + logo
+
+For at starte cypress e2e skal man køre denne kommando: npm install cypress --save-dev
+Dernæst: npx cypress open
+
+Så åbnes cypress i et nyt vindue.
+
+Disse tests kan findes ved hjælp af denne sti: cypress/e2e
 
 ### Github Action:
 Github Action fungerer - hvergang der pushes så opdatere den.
