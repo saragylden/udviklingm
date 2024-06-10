@@ -37,4 +37,4 @@ ToDoItemEditForm
 HelloWorld.cy.js App.cy.js
 
 ### Github Action:
-Github Action fungere - hvergang der pushes så opdatere den.
+Github Action fungerer - hvergang der pushes så opdatere den.
