@@ -27,3 +27,11 @@ npm run dev
 ```sh
 npm run build
 ```
+### Succesful unitest:
+HelloWorld
+ToDoForm
+ToDoItem
+ToDoItemEditForm
+
+### Succesful e2e:
+HelloWorld
