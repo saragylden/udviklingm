@@ -37,7 +37,7 @@ npm run build
 Der er blevet gjort brug af vitest for at udføre disse unitests.
 Dette installeres ved hjælp af denne kommando: npm install vitest --save-dev
 
-Disse tests kan findes ved hjælp af denne sti: src/components/__test__
+Disse tests kan findes ved hjælp af denne sti: src/components/__ test __
 
 ### Succesful e2e:
 ToDoItem.cy.js 
