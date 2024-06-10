@@ -32,6 +32,7 @@ npm run build
 2. ToDoForm
 3. ToDoItem
 4. ToDoItemEditForm
+5. app
 
 Der er blevet gjort brug af vitest for at udføre disse unitests.
 Dette installeres ved hjælp af denne kommando: npm install vitest --save-dev
