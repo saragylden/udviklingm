@@ -1,5 +1,6 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import ToDoForm from './components/ToDoForm.vue';
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
+      <ToDoForm />
     </div>
   </header>
 
