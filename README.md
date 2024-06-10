@@ -33,7 +33,7 @@ ToDoForm
 ToDoItem
 ToDoItemEditForm
 
-Det er blevet gjort brug af vitest for at udføre disse unitests.
+Der er blevet gjort brug af vitest for at udføre disse unitests.
 Dette installeres ved hjælp af denne kommando: npm install vitest --save-dev
 
 Disse tests kan findes ved hjælp af denne sti: src/components/__test__
@@ -51,7 +51,7 @@ Denne e2e tjekker om:
 - En korrekt besked vises + logo
 
 For at starte cypress e2e skal man køre denne kommando: npm install cypress --save-dev
-Dernæst: npx cypress open
+-> Dernæst køres: npx cypress open
 
 Så åbnes cypress i et nyt vindue.
 
