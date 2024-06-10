@@ -1,6 +1,6 @@
 describe('My App', () => {
     beforeEach(() => {
-      cy.visit('/') // Just assuming your app is served on root URL
+      cy.visit('/') 
     })
   
     it('should display the Vue logo', () => {
