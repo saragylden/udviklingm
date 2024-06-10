@@ -27,11 +27,11 @@ npm run dev
 ```sh
 npm run build
 ```
-### Succesful unitest:
-HelloWorld
-ToDoForm
-ToDoItem
-ToDoItemEditForm
+### Succesful unitests:
+1. HelloWorld
+2. ToDoForm
+3. ToDoItem
+4. ToDoItemEditForm
 
 Der er blevet gjort brug af vitest for at udføre disse unitests.
 Dette installeres ved hjælp af denne kommando: npm install vitest --save-dev
@@ -39,16 +39,14 @@ Dette installeres ved hjælp af denne kommando: npm install vitest --save-dev
 Disse tests kan findes ved hjælp af denne sti: src/components/__test__
 
 ### Succesful e2e:
-HelloWorld.cy.js 
+ToDoItem.cy.js 
 Denne e2e test tjekker:
-- Tjekker om en bestemt besked vises korrekt.
-- Kontrollerer om essentielle links er til stede.
-- Kontrollerer om økosystem-links er til stede.
-- Tester om eksterne links åbnes korrekt.
+- Tjekker om der vises navn + checkbox
+- Tjekker om man kan slette en ToDoItem
 
 App.cy.js
 Denne e2e tjekker om:
-- En korrekt besked vises + logo
+- Listen over opgaver vises på siden
 
 For at starte cypress e2e skal man køre denne kommando: npm install cypress --save-dev
 -> Dernæst køres: npx cypress open
