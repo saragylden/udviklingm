@@ -34,7 +34,16 @@ ToDoItem
 ToDoItemEditForm
 
 ### Succesful e2e:
-HelloWorld.cy.js App.cy.js
+HelloWorld.cy.js 
+Denne e2e test tjekker:
+- Tjekker om en bestemt besked vises korrekt.
+- Kontrollerer om essentielle links er til stede.
+- Kontrollerer om økosystem-links er til stede.
+- Tester om eksterne links åbnes korrekt.
+
+App.cy.js
+Denne e2e tjekker om:
+- En korrekt besked vises + logo
 
 ### Github Action:
 Github Action fungerer - hvergang der pushes så opdatere den.
