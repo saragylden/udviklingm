@@ -68,9 +68,11 @@ export default {
       this.focusOnEditButton();
     },
     editCancelled() {
+      this.$emit('edit-cancelled');
       this.isEditing = false;
       this.focusOnEditButton();
     },
+
     focusOnEditButton() {
       this.$nextTick(() => {
         const editButtonRef = this.$refs.editButton;
