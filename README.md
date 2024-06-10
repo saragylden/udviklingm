@@ -35,3 +35,6 @@ ToDoItemEditForm
 
 ### Succesful e2e:
 HelloWorld.cy.js App.cy.js
+
+### Github Action:
+Github Action fungere - hvergang der pushes så opdatere den.
