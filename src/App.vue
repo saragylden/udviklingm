@@ -1,48 +1,183 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import ToDoForm from './components/ToDoForm.vue';
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-      <ToDoForm />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div id="app">
+    <h1>To-Do List</h1>
+    <to-do-form @todo-added="addToDo"></to-do-form>
+    <h2 id="list-summary" ref="listSummary" tabindex="-1">{{ listSummary }}</h2>
+    <ul aria-labelledby="list-summary" class="stack-large">
+      <li v-for="(item, index) in ToDoItems" :key="index">
+        <to-do-item
+          :label="item.label"
+          :done="item.done"
+          :id="index"
+          @checkbox-changed="updateDoneStatus(index)"
+          @item-deleted="deleteToDo(index)"
+          @item-edited="editToDo(index, $event)">
+        </to-do-item>
+      </li>
+    </ul>
+    <HelloWorld />
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+import ToDoItem from "./components/ToDoItem.vue";
+import ToDoForm from "./components/ToDoForm.vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
-.logo {
+export default {
+  name: "app",
+  components: {
+    ToDoItem,
+    ToDoForm,
+    HelloWorld,
+  },
+  data() {
+    return {
+      ToDoItems: [
+        { id: 'todo-0', label: "Learn Vue", done: false },
+        { id: 'todo-1', label: "Create a Vue project with the CLI", done: true },
+        { id: 'todo-2', label: "Have fun", done: true },
+        { id: 'todo-3', label: "Create a to-do list", done: false },
+      ],
+    };
+  },
+  methods: {
+    addToDo(toDoLabel) {
+      this.ToDoItems.push({
+        id: 'todo-' + this.ToDoItems.length,
+        label: toDoLabel,
+        done: false,
+      });
+    },
+    updateDoneStatus(toDoIndex) {
+      this.ToDoItems[toDoIndex].done = !this.ToDoItems[toDoIndex].done;
+    },
+    deleteToDo(toDoIndex) {
+      this.ToDoItems.splice(toDoIndex, 1);
+      this.$refs.listSummary.focus();
+    },
+    editToDo(toDoIndex, newLabel) {
+      this.ToDoItems[toDoIndex].label = newLabel;
+    },
+  },
+  computed: {
+    listSummary() {
+      const numberFinishedItems = this.ToDoItems.filter(
+        (item) => item.done
+      ).length;
+      return `${numberFinishedItems} out of ${this.ToDoItems.length} items completed`;
+    },
+  },
+};
+</script>
+
+<style>
+/* Global styles */
+.btn {
+  padding: 0.8rem 1rem 0.7rem;
+  border: 0.2rem solid #4d4d4d;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.btn__danger {
+  color: #fff;
+  background-color: #ca3c3c;
+  border-color: #bd2130;
+}
+.btn__filter {
+  border-color: lightgrey;
+}
+.btn__danger:focus {
+  outline-color: #c82333;
+}
+.btn__primary {
+  color: #fff;
+  background-color: #000;
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-group > * {
+  flex: 1 1 auto;
+}
+.btn-group > * + * {
+  margin-left: 0.8rem;
+}
+.label-wrapper {
+  margin: 0;
+  flex: 0 0 100%;
+  text-align: center;
+}
+[class*="__lg"] {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.9rem;
+}
+[class*="__lg"]:not(:last-child) {
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 620px) {
+  [class*="__lg"] {
+    font-size: 2.4rem;
+  }
+}
+.visually-hidden {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+[class*="stack"] > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.stack-small > * + * {
+  margin-top: 1.25rem;
+}
+.stack-large > * + * {
+  margin-top: 2.5rem;
+}
+@media screen and (min-width: 550px) {
+  .stack-small > * + * {
+    margin-top: 1.4rem;
+  }
+  .stack-large > * + * {
+    margin-top: 2.8rem;
+  }
+}
+/* End global styles */
+#app {
+  background: #fff;
+  margin: 2rem 0 4rem 0;
+  padding: 1rem;
+  padding-top: 0;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
+}
+@media screen and (min-width: 550px) {
+  #app {
+    padding: 4rem;
+  }
+}
+#app > * {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+#app > form {
+  max-width: 100%;
+}
+#app h1 {
   display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+  min-width: 100%;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 </style>

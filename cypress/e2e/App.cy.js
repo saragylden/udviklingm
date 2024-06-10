@@ -1,15 +1,14 @@
 describe('My App', () => {
-    beforeEach(() => {
-      cy.visit('/') 
-    })
-  
-    it('should display the Vue logo', () => {
-      cy.get('img.logo').should('exist')
-    })
-  
-    it('should display the "You did it!" message', () => {
-      cy.contains('You did it!').should('exist')
-    })
-
+  beforeEach(() => {
+    cy.visit('/')
   })
-  
+
+  it('should display the "To-Do List" title', () => {
+    cy.contains('h1', 'To-Do List').should('exist')
+  })
+
+  it('should display the list summary', () => {
+    cy.get('#list-summary').should('exist')
+  })
+
+})
