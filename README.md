@@ -27,11 +27,11 @@ npm run dev
 ```sh
 npm run build
 ```
-### Succesful unitest:
-HelloWorld
-ToDoForm
-ToDoItem
-ToDoItemEditForm
+### Succesful unitests:
+1. HelloWorld
+2. ToDoForm
+3. ToDoItem
+4. ToDoItemEditForm
 
 Der er blevet gjort brug af vitest for at udføre disse unitests.
 Dette installeres ved hjælp af denne kommando: npm install vitest --save-dev
